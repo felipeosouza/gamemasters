@@ -1,9 +1,8 @@
 import styles from './components.module.css'
-import ErrorIcon from '../assets/imgs/errorIcon.png'
 
 export default function ContentHandler({contentSituation}) {
     const Message = ({msg}) => <div className={styles.error}>
-            <img className={styles.errorIcon} src={ErrorIcon.src} alt={'Error'}/>
+            <img className={styles.errorIcon} src={'/static/images/errorIcon.png'} alt={'Error'}/>
         <p className={styles.errorMsg}>{msg}</p>
     </div>
 
