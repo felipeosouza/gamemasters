@@ -10,9 +10,10 @@ export default function Card({gameData}) {
         genre = gameData.genre
         gameDescription = gameData.short_description
         return <div className={styles.gameCard}>
-            <a href={link}
-            target="_blank"
-            rel="noreferrer">
+            <a className={styles.backgroundContainer}
+               href={link}
+               target="_blank"
+               rel="noreferrer">
                 <img src={src}
                     alt="Game Background"
                     className={styles.gameBackground}

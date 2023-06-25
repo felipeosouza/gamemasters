@@ -4,7 +4,7 @@ import styles from './components.module.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useSelector, useDispatch } from 'react-redux'
-import { setArray } from '../app/gameArraySlice'
+import { setArray, setPage } from '../app/gameArraySlice'
 
 
 export default function GenreDropdown() {
@@ -19,6 +19,7 @@ export default function GenreDropdown() {
         })
         if(newArray.length == 0) newArray = originalArray
         dispatch(setArray(newArray))
+        dispatch(setPage(1))
     }
 
     const handleItemClick = event => {

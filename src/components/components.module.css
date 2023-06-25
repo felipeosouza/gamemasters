@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 a.noDecoration {
+  width: fit-content;
+  height: fit-content;
+  text-decoration: none;
+} 
+a.backgroundContainer {
+  width: 80%;
+  height: fit-content;
   text-decoration: none;
 } 
 p.errorMsg {
@@ -84,12 +91,9 @@ p.errorMsg {
  
  /* Card */
  .gameCard {
-   margin: 3rem 2rem 0 0;
-   width: 22rem;
-   height: fit-content;
+   width: 24rem;
+   margin: 2rem 1% 0 1%;
    flex-direction: column;
-   align-items: center;
-   justify-content: center;
    border-radius: 3%;
  
    transition: transform 0.2s ease-out;
@@ -98,6 +102,13 @@ p.errorMsg {
  .gameCard:hover {
    transform: scale(1.2, 1.2);
  }
+ .gameLine {
+   display: flex;
+   width: 80%;
+   height: auto;
+   flex-direction: row;
+   align-items: center;
+}
 
  .gameInfo {
     display: flex;
@@ -105,7 +116,6 @@ p.errorMsg {
     align-items: center;
     padding: 0.2rem 0 0 0;
     height: 6rem;
-    max-height: fit-content;
     width: 100%;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -114,10 +124,10 @@ p.errorMsg {
  }
 
  .gameBackground {
-    width : 22rem;
+    display: flex;
+    width: 100%;
     border-radius: 4%;
     align-self: center;
-    align-items: flex-end;
  }
 
  .loading {
@@ -151,13 +161,12 @@ p.errorMsg {
  }
 
  .gameList {
-    width: 70rem;
+    display: flex;
+    width: 100%;
     align-items: center;
+    justify-content: center;
     background-color: inherit;
     flex-direction: column;
-  }
- .gameLine {
-    display: flex;
   }
 
  .header {
@@ -229,8 +238,21 @@ p.errorMsg {
    border-color: #ffffff transparent #ffffff transparent;
    animation: rotate 1.5s linear infinite;
  }
- 
- @media screen and (max-width: 800px) {
+
+ @media screen and (max-width: 850px) {
+  p.gameDescription {
+    font-family: 'Josefin Sans';
+    font-size: 0.7rem;
+    overflow: hidden;
+    max-height: 90%;
+    color: rgb(255, 255, 255);
+ }
+ .searchBarContainer {
+  height: auto;
+  margin-right: 2rem;
+}
+}
+ @media screen and (max-width: 600px) {
     p.errorMsg {
       font-family: 'Josefin Sans';
       font-size: 0.8rem;
@@ -243,10 +265,8 @@ p.errorMsg {
       color: rgb(255, 255, 255);
    }
     .gameCard {
-      margin: 4rem 0 0 0;
-      height: fit-content;
-      width: fit-content;
-      max-width: 85%;
+      margin: 3rem 0 0 0;
+      width: 85%;
       align-items: center;
       justify-content: center;
       border-radius: 3%;
@@ -325,3 +345,10 @@ p.errorMsg {
       justify-content: flex-end;
    }
  }
+
+/*  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 80%; */
