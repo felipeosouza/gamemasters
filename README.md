@@ -1,5 +1,5 @@
 ## Game Masters
-Next.js project made for App Masters internship
+Next.js project made for App Masters internship.
 
 ### Features
 - Redux;
