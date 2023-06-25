@@ -7,8 +7,8 @@ export default function Header() {
         <div className={styles.headerDiv}>
         </div>
         <div className={styles.headerDiv}>
-          <h1 className={styles.siteNameWhite}>Game</h1>
-          <h1 className={styles.siteNameBlue}>Masters</h1>
+            <h1 className={styles.siteNameWhite}>Game</h1>
+            <h1 className={styles.siteNameBlue}>Masters</h1>
         </div>
         <div className={styles.headerDiv}>
           <SearchBar/>

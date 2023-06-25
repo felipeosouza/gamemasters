@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/GameList.js", "src/components/GameLine.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/GameList.js", "src/components/GameLine.js", "src/app/page.js", "src/components/ContentHandler.js", "src/components/Card.js"],
   "exclude": ["node_modules"]
 }

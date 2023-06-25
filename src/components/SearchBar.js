@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import styles from './components.module.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { setArray } from '../app/gameArraySlice'
+import { setArray, setPage } from '../app/gameArraySlice'
 
 export default function SearchBar() {
     const dispatch = useDispatch()
     const [barState, setBarState] = useState('')
     const originalArray = useSelector(state => state.gamesArray.originalArray)
+    
     const searchByTitle = (array, searchString) => {
         const loweredString = searchString.toLowerCase()
         let newArray = array.filter((el)=>{
@@ -22,7 +23,7 @@ export default function SearchBar() {
             (event)=>{
                 event.preventDefault()
                 searchByTitle(originalArray, barState)
-                setBarState('')
+                dispatch(setPage(1))
             }}>
         <input className={styles.search}
                type="text"

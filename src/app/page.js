@@ -5,6 +5,7 @@ import Loading from '../components/Loading'
 import ContentHandler from '@/components/ContentHandler'
 import GameList from '../components/GameList';
 import Header from '../components/Header';
+import GenreDropdown from '../components/GenreDropdown';
 import store from './store'
 import { Provider } from 'react-redux'
 import { setArray, setOriginalArray, setGenres } from './gameArraySlice'
@@ -48,6 +49,8 @@ const App = () => {
       setContentSituation('available')
     }
     const data = await res.json()
+    
+    if(res.ok) dispatch(setGenres(data))
     return data
   }
 
@@ -55,9 +58,9 @@ const App = () => {
     let data;
     (async () => {
       data = await getData()
+
       dispatch(setArray(data))
       dispatch(setOriginalArray(data))
-      dispatch(setGenres(data))
     })()
   }, [])
 
@@ -66,6 +69,7 @@ const App = () => {
     return (
       <>
       <Header/>
+      <GenreDropdown/>
       <main className={styles.main}>
         <GameList gamesArray={currentArray}/>
       </main>

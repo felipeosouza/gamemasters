@@ -1,7 +1,7 @@
 //get all genres
 
 const getGenres = (array) => {
-    if(array){
+    if(typeof(array) == 'object'){
         const genres = array.map((el) =>{
             return el.genre
         })
