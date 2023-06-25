@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+ p.errorMsg {
+    font-family: 'Josefin Sans';
+    font-size: 1.4rem;
+    color: rgb(255, 255, 255);
+ }
+ p.gameDescription {
+    font-family: 'Josefin Sans';
+    margin: 0 0 0 8px;
+    font-size: 0.85rem;
+    color: rgb(255, 255, 255);
+    transform: translateY(-1.3rem);
+ }
+ h1.gameTitle {
+  margin: 0 0 0 8px;
+  height: fit-content;
+  font-family: 'Bebas Neue';
+  font-size: 1.5rem;
+  text-shadow: 3px 3px 3px #181717;
+  color: rgb(255, 255, 255);
+
+  transform: translateY(-100%);
+}
+ input.search {
+   padding: 0 0 0 5px;
+   width: 14rem;
+   border-width: 0 0 0 0;
+   border-radius: 7px;
+   background-color: rgb(72, 73, 73);
+   aspect-ratio: 5.5;
+   font-family: 'Josefin Sans';
+   font-size: 1.1rem;
+   color: #ffffff;
+ }
+ input.search::placeholder{
+  color: #eceaea;
+}
+ .searchBarContainer {
+   height: auto;
+   margin-right: 6rem;
+ }
+
+ .siteNameWhite {
+    margin: 0 0 0 0;
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+    align-self: center;
+    color: rgb(255, 255, 255);
+    transform: translateX(-0.16rem);
+ }
+ .siteNameBlue {
+    margin: -1rem 0 0 0;
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+    align-self: center;
+    color: rgb(0, 183, 255);
+ }
+ 
+ .errorIcon {
+   width: 3rem;
+   height: 3rem;
+ }
+ 
+ .iconContainer {
+   display: flex;
+   background-color: rgb(163, 16, 16);
+   justify-content: center;
+ }
+ 
+ /* Card */
+ .gameCard {
+   margin: 3rem 2rem 0 0;
+   width: 22rem;
+   height: fit-content;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border-radius: 3%;
+ 
+   transition: transform 0.2s ease-out;
+ }
+ 
+ .gameCard:hover {
+   transform: scale(1.2, 1.2);
+ }
+
+ .gameInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 0.2rem 0 0 0;
+    height: 5.5rem;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: rgb(24, 23, 23);
+    transform: translateY(-0.6rem);
+ }
+
+ .gameBackground {
+    width : 22rem;
+    border-radius: 4%;
+    align-self: center;
+    align-items: flex-end;
+ }
+
+ .loading {
+   display: flex;
+   flex-direction: column;
+   width: 70rem;
+   aspect-ratio: 5;
+   position: absolute;
+   align-items: center;
+   justify-content: center;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+ 
+ .error {
+   display: flex;
+   flex-direction: column;
+   width: 70rem;
+   aspect-ratio: 5;
+   position: absolute;
+   align-items: center;
+   justify-content: center;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+
+ .gameList {
+    width: 70rem;
+    align-items: center;
+    flex-direction: column;
+  }
+ .gameLine {
+    display: flex;
+    padding-left: 1.5rem;
+  }
+
+ .header {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(24, 22, 22);
+    justify-content: center;
+    align-items: center;
+ }
+ .headerDiv {
+   display: flex;
+   width: 100%;
+   flex-direction: column;
+   align-items: flex-end;
+ }
+
+ .gameDescriptionContainer {
+  width: 95%;
+  flex-wrap: wrap;
+  height: 100%;
+}
+ 
+ .loaderContainer {
+   height: fit-content;
+   width: fit-content;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-around;
+   
+ }
+ 
+ @keyframes rotate{
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+ 
+ .loader {
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   border: 6px solid #ffffff;
+   border-color: #ffffff transparent #ffffff transparent;
+   animation: rotate 1.5s linear infinite;
+ }
+ 
+ @media screen and (max-width: 600px) {
+    p.errorMsg {
+      font-family: 'Josefin Sans';
+      font-size: 0.8rem;
+      color: rgb(255, 255, 255);
+    }
+    .gameCard {
+      margin: 4rem 0 0 0;
+      height: fit-content;
+      width: fit-content;
+      max-width: 85%;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(24, 24, 24);
+      border-radius: 3%;
+    }
+    .gameCard:hover {
+        transform: scale(1, 1);
+    }
+    .gameBackground {
+        width: 100%;
+        height: auto;
+        border-radius: 4%;
+        align-self: center;
+        align-items: flex-end;
+     }
+    
+    .gameLine {
+      display: flex;
+      margin: 0 0 0 0;
+      padding: 0 0 0 0;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  
+    .gameInfo {
+        display: flex;
+        max-width: 100%;
+        height: 5.5rem;
+        border-bottom-right-radius: 5%;
+        border-bottom-left-radius: 5%;
+        background-color: rgb(24, 23, 23);
+        transform: translateY(-0.6rem);
+     }
+     .header {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(24, 22, 22);
+      justify-content: center;
+      align-items: center;
+   }
+     .headerDiv {
+      display: flex;
+      margin: 0.5rem 0 0 0;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    .searchBarContainer {
+      display: flex;
+      margin-right: 0;
+      margin-bottom: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .error, .loading {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      aspect-ratio: 5;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+ }
+ }

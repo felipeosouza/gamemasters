@@ -1,95 +1,87 @@
-import Image from 'next/image'
+"use client";
+import { useEffect, useState } from 'react'
 import styles from './page.module.css'
+import Loading from '../components/Loading'
+import ContentHandler from '@/components/ContentHandler'
+import GameList from '../components/GameList';
+import Header from '../components/Header';
+import store from './store'
+import { Provider } from 'react-redux'
+import { setArray, setOriginalArray, setGenres } from './gameArraySlice'
+import { useDispatch, useSelector } from 'react-redux'
+
+
+
+const App = () => {
+  const dispatch = useDispatch()
+  const currentArray = useSelector(state => state.gamesArray.currentArray)
+
+  const [contentSituation, setContentSituation] = useState('fetching')
+  const getData = async () => {
+    const badStatuses = [500, 502, 503, 504, 507, 508, 509]
+    const abortController = new AbortController()
+    
+    //fetching with timed out abortion
+    var timeout = setTimeout(()=> {
+      abortController.abort()
+      setContentSituation('timed_out')
+    }, 5000)
+
+    const res = await fetch('https://games-test-api-81e9fb0d564a.herokuapp.com/api/data/', {
+      headers : {
+        "dev-email-address" : 'felipeosouzadev@gmail.com'
+      },
+      signal : abortController.signal
+    })
+    
+    //clear timeout if within limit
+    clearTimeout(timeout)
+    
+    //handling errors
+    if(!res.ok){
+      if(badStatuses.find((el) => res.status == el)){
+        setContentSituation('bad_response')
+      } else {
+        setContentSituation('unexpected_response')
+      }
+    } else {
+      setContentSituation('available')
+    }
+    const data = await res.json()
+    return data
+  }
+
+  useEffect(()=> {
+    let data;
+    (async () => {
+      data = await getData()
+      dispatch(setArray(data))
+      dispatch(setOriginalArray(data))
+      dispatch(setGenres(data))
+    })()
+  }, [])
+
+  //rendering
+  if(contentSituation == 'available') {
+    return (
+      <>
+      <Header/>
+      <main className={styles.main}>
+        <GameList gamesArray={currentArray}/>
+      </main>
+      </>
+    )
+  } else if(contentSituation == 'fetching'){
+    return <Loading/>
+  } else {
+    return <main className={styles.main}>
+        <ContentHandler contentSituation={contentSituation}/>
+      </main>
+  }
+}
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+   return <Provider store={store}>
+      <App/>
+   </Provider>
 }
