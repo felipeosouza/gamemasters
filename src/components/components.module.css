@@ -230,7 +230,7 @@ p.errorMsg {
    animation: rotate 1.5s linear infinite;
  }
  
- @media screen and (max-width: 600px) {
+ @media screen and (max-width: 800px) {
     p.errorMsg {
       font-family: 'Josefin Sans';
       font-size: 0.8rem;
