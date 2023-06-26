@@ -91,7 +91,7 @@ p.errorMsg {
  
  /* Card */
  .gameCard {
-   width: 24rem;
+   width: 30%;
    margin: 2rem 1% 0 1%;
    flex-direction: column;
    border-radius: 3%;
@@ -104,7 +104,8 @@ p.errorMsg {
  }
  .gameLine {
    display: flex;
-   width: 80%;
+   padding-left: 2%;
+   width: 85%;
    height: auto;
    flex-direction: row;
    align-items: center;
@@ -246,11 +247,19 @@ p.errorMsg {
     overflow: hidden;
     max-height: 90%;
     color: rgb(255, 255, 255);
- }
- .searchBarContainer {
-  height: auto;
-  margin-right: 2rem;
-}
+  }
+  .searchBarContainer {
+    height: auto;
+    margin-right: 2rem;
+  }
+  .gameCard {
+    width: 30%;
+    margin: 2rem 1% 0 1%;
+    flex-direction: column;
+    border-radius: 3%;
+  
+    transition: none;
+  }
 }
  @media screen and (max-width: 600px) {
     p.errorMsg {
