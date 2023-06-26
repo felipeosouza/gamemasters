@@ -20,7 +20,9 @@ export default function Card({gameData}) {
                    />
                    </a>
             </div>
-            <h1 className={styles.gameTitle}>{name + ` (${genre})`}</h1>
+            <div className={styles.titleContainer}>
+                <h1 className={styles.gameTitle}>{name + ` (${genre})`}</h1>
+            </div>
             <div className={styles.gameInfo}>
                 <div className={styles.gameDescriptionContainer}>
                 <p className={styles.gameDescription}>{gameDescription}</p>

@@ -35,8 +35,6 @@ p.errorMsg {
  }
  h1.gameTitle {
   margin: 0 0 0 8px;
-  width:20rem;
-  position: absolute;
   flex-wrap: wrap;
   font-family: 'Bebas Neue';
   font-size: 1.6rem;
@@ -47,8 +45,8 @@ p.errorMsg {
 }
  .titleContainer {
   display: flex;
+  height: 0;
   background-color: #ffffff;
-  position: absolute;
 }
  .gameTitleContainer {
     margin: 0 0 0 8px;
