@@ -113,16 +113,24 @@ p.errorMsg {
 
  .gameInfo {
     display: flex;
+    overflow: visible;
     flex-direction: column;
     align-items: center;
     padding: 0.2rem 0 0 0;
     height: 6rem;
+    min-height: 6rem;
     width: 100%;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: rgb(15, 15, 15);
     transform: translateY(-0.6rem);
+    
+    transition: height 5s ease-in-out 2s;
  }
+
+ .gameInfo:hover {
+    height: fit-content;
+}
 
  .gameBackground {
     display: flex;
