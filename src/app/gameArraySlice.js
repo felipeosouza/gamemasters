@@ -19,7 +19,6 @@ export const gamesArraySlice = createSlice({
       setGenres: (state, action) => {
         const genres = getGenres(action.payload)
         state.genres = genres
-        console.log(genres)
       },
       setPage: (state, action) => {
         state.page = action.payload

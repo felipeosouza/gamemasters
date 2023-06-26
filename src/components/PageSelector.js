@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux'
 export default function PageSelector() {
     const dispatch = useDispatch()
     const currentArray = useSelector(state => state.gamesArray.currentArray)
-    console.log(currentArray.length)
     const handleClick = (event)=>{
         const page = Number(event.currentTarget.textContent)
         dispatch(setPage(page))
