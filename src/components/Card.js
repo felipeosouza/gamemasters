@@ -10,17 +10,18 @@ export default function Card({gameData}) {
         genre = gameData.genre
         gameDescription = gameData.short_description
         return <div className={styles.gameCard}>
-            <a className={styles.backgroundContainer}
-               href={link}
-               target="_blank"
-               rel="noreferrer">
-                <img src={src}
-                    alt="Game Background"
-                    className={styles.gameBackground}
-                />
-            </a>
+            <div className={styles.backgroundContainer}>
+                   <a href={link}
+                      target="_blank"
+                      rel="noreferrer">
+                    <img src={src}
+                        alt="Game Background"
+                        className={styles.gameBackground}
+                   />
+                   </a>
+            </div>
+            <h1 className={styles.gameTitle}>{name + ` (${genre})`}</h1>
             <div className={styles.gameInfo}>
-                <h1 className={styles.gameTitle}>{name + ` (${genre})`}</h1>
                 <div className={styles.gameDescriptionContainer}>
                 <p className={styles.gameDescription}>{gameDescription}</p>
                 </div>

@@ -6,11 +6,13 @@ a.noDecoration {
   height: fit-content;
   text-decoration: none;
 } 
-a.backgroundContainer {
-  width: 80%;
+.backgroundContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
   height: fit-content;
   text-decoration: none;
-} 
+}
 p.errorMsg {
     font-family: 'Josefin Sans';
     font-size: 1.4rem;
@@ -33,16 +35,31 @@ p.errorMsg {
  }
  h1.gameTitle {
   margin: 0 0 0 8px;
-  height: fit-content;
+  width:20rem;
   position: absolute;
-  width: 100%;
+  flex-wrap: wrap;
   font-family: 'Bebas Neue';
   font-size: 1.6rem;
+  align-self: baseline;
   text-shadow: 3px 3px 5px #181717;
   color: rgb(255, 255, 255);
-
-  transform: translateY(-100%);
+  transform: translateY(-120%);
 }
+ .titleContainer {
+  display: flex;
+  background-color: #ffffff;
+  position: absolute;
+}
+ .gameTitleContainer {
+    margin: 0 0 0 8px;
+    height: fit-content;
+    width:100%;
+    flex-wrap: wrap;
+    font-family: 'Bebas Neue';
+    font-size: 1.6rem;
+    text-shadow: 3px 3px 5px #181717;
+    color: rgb(255, 255, 255);
+  }
  input.search {
    padding: 0 0 0 5px;
    width: 14rem;
@@ -113,6 +130,8 @@ p.errorMsg {
 
  .gameInfo {
     display: flex;
+    padding: 0 0 5px 0;
+    overflow: hidden;
     flex-direction: column;
     align-items: center;
     padding: 0.2rem 0 0 0;
@@ -259,6 +278,18 @@ p.errorMsg {
     max-height: 90%;
     color: rgb(255, 255, 255);
   }
+  h1.gameTitle {
+    margin: 0 0 0 8px;
+    width:12rem;
+    position: absolute;
+    flex-wrap: wrap;
+    font-family: 'Bebas Neue';
+    font-size: 1.1rem;
+    align-self: baseline;
+    text-shadow: 3px 3px 5px #181717;
+    color: rgb(255, 255, 255);
+    transform: translateY(-115%);
+  }
   .searchBarContainer {
     height: auto;
     margin-right: 2rem;
@@ -315,6 +346,7 @@ p.errorMsg {
     .gameInfo {
         display: flex;
         max-width: 100%;
+        overflow: hidden;
         height: fit-content;
         border-bottom-right-radius: 8px;
         border-bottom-left-radius: 8px;
@@ -370,6 +402,9 @@ p.errorMsg {
       padding: 1.5rem 1rem 0 0;
       justify-content: flex-end;
    }
+   h1.gameTitle {
+    transform: translateY(-150%);
+  }
  }
 
 /*  display: flex;
